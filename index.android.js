@@ -9,7 +9,7 @@ import {
     Text,
     View,
     StyleSheet,
-    Button, TextInput, Image
+    Button, TextInput, Image, TouchableHighlight
 } from 'react-native';
 import Header from './src/components/header'
 
@@ -63,7 +63,11 @@ export default class Index extends Component {
                         marginTop: 5,
                         paddingVertical: 10
                     }}>
-                        {items.map((value) => <Text key={value} style={{textAlign: 'center',fontFamily:'dincond_bold', color: '#333333'}}>{value}</Text>)}
+                        {items.map((value) => <Text key={value} style={{
+                            textAlign: 'center',
+                            fontFamily: 'dincond_bold',
+                            color: '#333333'
+                        }}>{value}</Text>)}
                     </View>
                     <View style={{alignSelf: 'center', backgroundColor: 'green'}}>
                         <Text>point</Text>
@@ -74,9 +78,17 @@ export default class Index extends Component {
                         flexDirection: 'column',
                         alignItems: 'flex-start'
                     }}>
-                        <View style={{backgroundColor: 'green'}}>
-                            <Button title='locate' onPress={() => {
-                            }}/>
+                        <View >
+                            <TouchableHighlight style={{
+                                padding: 10,
+                                borderColor: 'black',
+                                borderWidth: 1,
+                                borderRadius: 30,
+                                marginBottom:10
+                            }}
+                            ><Image source={require('./mc.png')}
+                                    style={{width: 30, resizeMode: 'contain'}}/>
+                            </TouchableHighlight>
                         </View>
                         <View style={{
                             height: 250,
@@ -85,8 +97,12 @@ export default class Index extends Component {
                             paddingHorizontal: 20
                         }}>
                             <Text style={styles.instructions}>The trip cost you</Text>
-                            <Text style={{textAlign: 'center', fontSize: 35,  fontFamily: 'dincond_bold'}}>${this.state.sum.toFixed(2)}</Text>
-                            <Text style={{textAlign: 'center',fontFamily: 'Bauhaus'}}>Detail></Text>
+                            <Text style={{
+                                textAlign: 'center',
+                                fontSize: 35,
+                                fontFamily: 'dincond_bold'
+                            }}>${this.state.sum.toFixed(2)}</Text>
+                            <Text style={{textAlign: 'center', fontFamily: 'Bauhaus'}}>Detail></Text>
                             <View style={{
                                 marginTop: 15,
                                 flexDirection: 'row',
